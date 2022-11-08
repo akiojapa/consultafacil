@@ -30,6 +30,8 @@ public class User implements Serializable {
 	
 	private String password;
 	
+	private Boolean logged;
+	
 	@JsonIgnore
 	@OneToOne(mappedBy = "userP", cascade = CascadeType.ALL)
 	private Pacient pacient;
@@ -53,12 +55,13 @@ public class User implements Serializable {
 	}
 
 
-	public User(Long id, String cpf, String password, AccessLevel accessLevel) {
+	public User(Long id, String cpf, String password, AccessLevel accessLevel, Boolean logged) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
 		this.password = password;
 		this.accessLevel = accessLevel;
+		this.logged = logged;
 	}
 
 
@@ -122,6 +125,16 @@ public class User implements Serializable {
 		return Objects.equals(accessLevel, other.accessLevel) && Objects.equals(cpf, other.cpf)
 				&& Objects.equals(id, other.id) && Objects.equals(password, other.password);
 	}
+
+
+    public Boolean getLogged() {
+        return logged;
+    }
+
+
+    public void setLogged(Boolean logged) {
+        this.logged = logged;
+    }
 	
 	
 	

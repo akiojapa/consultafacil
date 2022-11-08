@@ -1,7 +1,9 @@
 package com.consultafacil.consultafacil.entitities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -13,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -49,11 +52,9 @@ public class Ubs implements Serializable{
 	private Set<Receptionist> receptionists = new HashSet<>();
 
 	
-	@OneToOne(mappedBy = "ubs", cascade = CascadeType.ALL)
-	private Appointment appointment;
-//	@JsonIgnore
-//	@ManyToMany(mappedBy = "ubss")
-//	private Set<Appointment> appointment = new HashSet<>();
+	@OneToMany(mappedBy = "ubs")
+	private List<Appointment> appointments = new ArrayList<>();
+
 	
 
 	

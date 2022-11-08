@@ -22,8 +22,11 @@ public class AppointmentService {
 		return repository.findAll();
 	}
 	
-	public Appointment findById(Long id) {
+	public Appointment findById(Long id) throws Exception {
 		Optional<Appointment> obj = repository.findById(id);
+		if(obj.isEmpty()) {
+		    throw new Exception("Id não encontrado!");
+		}
 		return obj.get();
 	}
 	
@@ -31,9 +34,15 @@ public class AppointmentService {
 		return repository.save(obj);
 	}
 	
-	public void delete(Long id) {
-		repository.deleteById(id);
+	public void delete(Appointment obj) {
+	    repository.delete(obj);
 	}
+	
+	public void deletarTeste(Long id) throws Exception {
+	    findById(id);
+	    repository.deleteById(id);
+	}
+	
 	
 	public Appointment update(Long id, Appointment obj) {
 		Appointment entity = repository.getOne(id);

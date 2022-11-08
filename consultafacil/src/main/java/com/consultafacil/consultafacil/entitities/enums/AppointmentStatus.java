@@ -2,10 +2,11 @@ package com.consultafacil.consultafacil.entitities.enums;
 
 public enum AppointmentStatus {
 
-	WAITING_PACIENT(1),
-	LATE(2),
+	WAITING_CONFIRMATION(1),
+	CONFIRMED(2),
 	CONSULTED(3),
-	FINISHED(4);
+	FINISHED(4),
+	LATE(5);
 	
 	private int code;
 	

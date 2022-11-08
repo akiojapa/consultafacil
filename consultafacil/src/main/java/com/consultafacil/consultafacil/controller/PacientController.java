@@ -19,7 +19,7 @@ import com.consultafacil.consultafacil.entitities.Pacient;
 import com.consultafacil.consultafacil.services.PacientService;
 
 @RestController
-@RequestMapping(value="/pacients")
+@RequestMapping(value="/patients")
 public class PacientController {
 
 	@Autowired

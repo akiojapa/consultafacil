@@ -27,6 +27,7 @@ public class AppointmentController {
 	@Autowired
 	private AppointmentService service;
 	
+	
 	@Autowired
 	private SmsService smsService;
 	
@@ -37,7 +38,7 @@ public class AppointmentController {
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Appointment> findById(@PathVariable Long id){
+	public ResponseEntity<Appointment> findById(@PathVariable Long id) throws Exception{
 		Appointment obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
@@ -50,8 +51,8 @@ public class AppointmentController {
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id){
-			service.delete(id);
+	public ResponseEntity<Appointment> delete(@PathVariable Long id) throws Exception{	
+	        service.deletarTeste(id);
 			return ResponseEntity.noContent().build();
 	}
 	

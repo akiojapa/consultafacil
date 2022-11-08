@@ -8,6 +8,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,7 +38,7 @@ public class Schedule implements Serializable {
 	
 	private String condition;
 
-	@OneToOne(mappedBy = "schedule", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "schedule", fetch=FetchType.LAZY)
 	private Appointment appointment;
 	
 //	@JsonIgnore

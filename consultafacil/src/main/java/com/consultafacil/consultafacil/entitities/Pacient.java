@@ -1,7 +1,9 @@
 package com.consultafacil.consultafacil.entitities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -35,14 +38,12 @@ public class Pacient implements Serializable {
 	
 	@JsonIgnore
 	@OneToOne
-	@MapsId
+//	@MapsId
 	private User userP;
 
-	@OneToOne(mappedBy = "pacient", cascade = CascadeType.ALL)
-	private Appointment appointment;
-//	@JsonIgnore
-//	@ManyToMany(mappedBy = "pacients")
-//	private Set<Appointment> appointment = new HashSet<>();
+	@OneToMany(mappedBy = "pacient")
+	private List<Appointment> appointments = new ArrayList<>();
+
 	
 	public Pacient() {
 		

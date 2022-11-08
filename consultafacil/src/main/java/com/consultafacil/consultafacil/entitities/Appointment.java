@@ -6,12 +6,14 @@ import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -30,16 +32,15 @@ public class Appointment implements Serializable {
 	
 	private Integer appointmentStatus;
 
-	@OneToOne
-	@MapsId
+	@ManyToOne
+	@JoinColumn(name="patientAppointment")
 	private Pacient pacient;
 	
 	@OneToOne
-	@MapsId
 	private Schedule schedule;
 	
-	@OneToOne
-	@MapsId
+	@ManyToOne
+	@JoinColumn(name="ubsAppointment")
 	private Ubs ubs;
 	
 //	@ManyToMany
@@ -64,12 +65,11 @@ public class Appointment implements Serializable {
 	}
 
 
-	public Appointment(Long id, AppointmentStatus appointmentStatus, Pacient pacient, Schedule schedule, Ubs ubs) {
+	public Appointment(AppointmentStatus appointmentStatus, Pacient pacient, Schedule schedule, Ubs ubs) {
 		super();
-		this.id = id;
 		setAppointmentStatus(appointmentStatus);
 		this.setPacient(pacient);
-		this.setSchedule(schedule);
+//		this.setSchedule(schedule);
 		this.setUbs(ubs);
 	}
 
@@ -117,14 +117,14 @@ public class Appointment implements Serializable {
 	}
 
 
-	public Schedule getSchedule() {
-		return schedule;
-	}
-
-
-	public void setSchedule(Schedule schedule) {
-		this.schedule = schedule;
-	}
+//	public Schedule getSchedule() {
+//		return schedule;
+//	}
+//
+//
+//	public void setSchedule(Schedule schedule) {
+//		this.schedule = schedule;
+//	}
 
 
 	public Ubs getUbs() {

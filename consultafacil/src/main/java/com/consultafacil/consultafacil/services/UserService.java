@@ -45,6 +45,8 @@ public class UserService {
 	private void updateData(User entity, User obj) {
 		entity.setAccessLevel(obj.getAccessLevel());
 		entity.setCpf(obj.getCpf());
+		entity.setLogged(obj.getLogged());
+		entity.setPassword(obj.getPassword());
 		
 	}
 }

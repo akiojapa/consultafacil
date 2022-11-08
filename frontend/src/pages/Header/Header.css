@@ -1,0 +1,42 @@
+header {
+    background-color: #41b4e54d;
+}
+
+.logo-header {
+    filter: drop-shadow(1px 1px 3px #41b3e5);
+}
+
+.text-end .btn-header {
+    background-color: var(--cor0);
+    color: white;
+    border: var(--cor0);
+}
+
+.text-end .btn-header:hover {
+    background-color: #3491b9;
+    color: rgb(230, 230, 230);
+}
+
+.text-end .btn-header.out{
+    display: none;
+}
+
+.text-end .btn-header.outlogin{
+    background-color: #e03737 !important;
+
+}
+
+.text-end .btn-header.outlogin:hover{
+    background-color: #b60000cc !important;
+}
+
+.text-end .btn-header.outlogin svg{
+    margin-right: 10px !important;
+}
+
+
+
+.logo-header{
+    width: 70px;
+}
+
