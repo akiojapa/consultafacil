@@ -117,14 +117,14 @@ public class Appointment implements Serializable {
 	}
 
 
-//	public Schedule getSchedule() {
-//		return schedule;
-//	}
-//
-//
-//	public void setSchedule(Schedule schedule) {
-//		this.schedule = schedule;
-//	}
+	public Schedule getSchedule() {
+		return schedule;
+	}
+
+
+	public void setSchedule(Schedule schedule) {
+		this.schedule = schedule;
+	}
 
 
 	public Ubs getUbs() {

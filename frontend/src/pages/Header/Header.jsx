@@ -53,7 +53,6 @@ const Header = () => {
 
 
 
-
     }
 
     const handleOut = (e) => {
@@ -143,8 +142,6 @@ const Header = () => {
             setName(receptionist.name);
         }
 
-        console.log(name)
-        console.log(doctor)
 
     }, [userp,doctor,receptionist])
 

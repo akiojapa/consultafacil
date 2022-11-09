@@ -7,6 +7,6 @@ export class Schedule{
     day_schedule = Date;
     hr_end = Date;
     hr_ini = Date;
-    doc_schedule = Doctor;
+    docSchedule = Doctor;
 
 }

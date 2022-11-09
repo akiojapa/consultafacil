@@ -35,7 +35,6 @@ public class Doctor implements Serializable{
 	private String spec;
 	
 	@OneToOne
-	@MapsId
 	private User userD;
 	
 	@JsonIgnore

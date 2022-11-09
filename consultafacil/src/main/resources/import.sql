@@ -34,8 +34,8 @@ INSERT INTO tb_ubs(loc,name) VALUES ('Av. Guedener - 1630', 'UBS Aclimação')
 
 /* Criando relacionamentos */
 
-INSERT INTO tb_receptionist_ubs(ubs_id,receptionist_id) VALUES (1,5)
-INSERT INTO tb_doctor_ubs(ubs_id,doctor_id) VALUES (1,3)
+INSERT INTO tb_receptionist_ubs(ubs_id,receptionist_id) VALUES (1,1)
+INSERT INTO tb_doctor_ubs(ubs_id,doctor_id) VALUES (1,1)
 INSERT INTO tb_doctor_ubs(ubs_id,doctor_id) VALUES (1,2)
 
 /* Criando horários */
@@ -45,16 +45,16 @@ INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUE
 INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Free', '2022-10-20T07:00:00Z', '2022-10-20T10:00:00Z', '2022-10-20T09:00:00Z', 2)
 INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Free', '2022-10-20T07:00:00Z', '2022-10-20T11:00:00Z', '2022-10-20T10:00:00Z', 2)
 INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Free', '2022-10-20T07:00:00Z', '2022-10-20T12:00:00Z', '2022-10-20T11:00:00Z', 2)
-INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Free', '2022-10-20T07:00:00Z', '2022-10-20T08:00:00Z', '2022-10-20T07:00:00Z', 3)
-INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Free', '2022-10-20T07:00:00Z', '2022-10-20T09:00:00Z', '2022-10-20T08:00:00Z', 3)
-INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Free', '2022-10-20T07:00:00Z', '2022-10-20T10:00:00Z', '2022-10-20T09:00:00Z', 3)
-INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Free', '2022-10-20T07:00:00Z', '2022-10-20T11:00:00Z', '2022-10-20T10:00:00Z', 3)
-INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Busy', '2022-10-20T07:00:00Z', '2022-10-20T12:00:00Z', '2022-10-20T11:00:00Z', 3)
+INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Free', '2022-10-20T07:00:00Z', '2022-10-20T08:00:00Z', '2022-10-20T07:00:00Z', 1)
+INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Free', '2022-10-20T07:00:00Z', '2022-10-20T09:00:00Z', '2022-10-20T08:00:00Z', 1)
+INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Free', '2022-10-20T07:00:00Z', '2022-10-20T10:00:00Z', '2022-10-20T09:00:00Z', 1)
+INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Free', '2022-10-20T07:00:00Z', '2022-10-20T11:00:00Z', '2022-10-20T10:00:00Z', 1)
+INSERT INTO tb_schedule(condition,day_schedule,hr_end,hr_ini,doc_schedule) VALUES ('Busy', '2022-10-20T07:00:00Z', '2022-10-20T12:00:00Z', '2022-10-20T11:00:00Z', 1)
 
 /* Criando consultas */
 
 
 INSERT INTO tb_appointment(appointment_status, schedule_id, patient_appointment, ubs_appointment) VALUES (1,1,1,1)
-INSERT INTO tb_appointment(appointment_status, schedule_id, patient_appointment, ubs_appointment) VALUES (1,2,4,1)
+INSERT INTO tb_appointment(appointment_status, schedule_id, patient_appointment, ubs_appointment) VALUES (1,2,2,1)
 INSERT INTO tb_appointment(appointment_status, schedule_id, patient_appointment, ubs_appointment) VALUES (1,10,1,1)
 

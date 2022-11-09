@@ -162,6 +162,7 @@ const Create = () => {
 
         }
         fetchDoc();
+        console.log(doctors)
         
 
     }, [chooseubs])

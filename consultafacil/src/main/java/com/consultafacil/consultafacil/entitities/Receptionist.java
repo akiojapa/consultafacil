@@ -33,7 +33,6 @@ public class Receptionist implements Serializable{
 	
 	@JsonIgnore
 	@OneToOne
-	@MapsId
 	private User userR;
 	
 	@JsonIgnore

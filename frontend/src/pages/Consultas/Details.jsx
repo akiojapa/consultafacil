@@ -29,8 +29,8 @@ import './Details.css'
 class Props {
     id = Number;
     appointmentStatus = String;
-    schedule = Schedule;
     patient = Patient;
+    schedule = Schedule;
     ubs = UBS;
 }
 
@@ -48,9 +48,12 @@ const Details = () => {
 
     const [doctor, setDoctor] = useState(doc)
 
+
     const [details, setDetails] = useState(new Props())
 
     const [patient, setPatient] = useState(new Patient())
+    
+    const [schedule, setSchedule] = useState(new Schedule())
 
     const [dayA, setDay] = useState('');
 
@@ -67,7 +70,6 @@ const Details = () => {
         if(patient.cel !== undefined){
     
         axios.put(`${BASE_URL}/appointment/` + details.id, { id: details.id, appointmentStatus: 1, pacient: details.patient, schedule: details.schedule, ubs: details.ubs });
-        console.log(details.appointmentStatus)
     
         axios(`${BASE_URL}/appointment/` + details.id + `/notification`).then(response => {
 
@@ -107,47 +109,49 @@ const Details = () => {
 
     }, [])
 
+    // useEffect(() => {
+
+    //     const fetchPatient = async () => {
+
+    //         const data = await axios.get(`${BASE_URL}/patients`)
+    //         if(details.patient !== undefined){
+    //             data.data.map(patientdata => (
+    //                 details.patient.id === patientdata.id ? setPatient(patientdata) : ''
+    //             ))
+
+    //         }
+
+    //     }
+    //     fetchPatient()
+
+    // }, [details])
+
     useEffect(() => {
 
-        const fetchDoctor = async () => {
-            const data = await axios.get(`${BASE_URL}/doctors`)
-            if (details.schedule.docSchedule.id !== undefined) {
-                data.data.map(doctordata => (
-                    details.schedule.docSchedule.id === doctordata.id ? setDoctor(doctordata) : ''
+        const fetchSchedule = async () => {
+
+            const data = await axios.get(`${BASE_URL}/schedule`)
+            if(data.data){
+                data.data.map(scheduledata => (
+                    scheduledata.id === details.schedule.id ? setSchedule(scheduledata) : ''
                 ))
             }
 
-        }
-        fetchDoctor();
-        console.log(doctor.name)
-
-    }, [details])
-
-    useEffect(() => {
-
-        const fetchPatient = async () => {
-
-            const data = await axios.get(`${BASE_URL}/patients`)
-            if(details.patient !== undefined){
-                data.data.map(patientdata => (
-                    details.patient.id === patientdata.id ? setPatient(patient) : ''
-                ))
-
-            }
 
         }
-        fetchPatient()
+        fetchSchedule()
 
 
     }, [details])
 
+
+    
 
     useEffect(() => {
 
         let day = ''
-        let dateformat = new Date(details.schedule.hr_ini)
-        console.log("Data: " + dateformat)
-        let dateformatend = new Date(details.schedule.hr_end)
+        let dateformat = new Date(schedule.hr_ini)
+        let dateformatend = new Date(schedule.hr_end)
         if (dateformat !== undefined) {
             day = (dateformat.getDay() < 10 ? '0' + dateformat.getDay() : dateformat.getDay()) + '/' + (dateformat.getMonth() < 10 ? '0' + dateformat.getMonth() : dateformat.getMonth())
             setDay(day)
@@ -159,7 +163,7 @@ const Details = () => {
         }
 
 
-    }, [details])
+    }, [schedule])
 
 
 
@@ -172,7 +176,7 @@ const Details = () => {
                 <hr className="col-8 col-md-12 mb-3" />
                 <div className="row g-5">
                     <div className="col-md-6 show-container-image d-flex justify-content-center">
-                        <img src={doctor.spec == 'Geral' ? img1 : img2} alt=""
+                        <img src={schedule.docSchedule.spec == 'Geral' ? img1 : img2} alt=""
                             className="shadow image-med" />
                     </div>
 
@@ -192,7 +196,7 @@ const Details = () => {
 
                             <li className="my-2">
                                 <BsFillPeopleFill />
-                                Médico: {doctor.name}
+                                Médico: {schedule.docSchedule.name}
                             </li>
                             <li className="my-2">
                                 <BsCalendarDateFill />
